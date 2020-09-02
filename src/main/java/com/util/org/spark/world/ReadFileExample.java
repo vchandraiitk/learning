@@ -19,8 +19,10 @@ public class ReadFileExample {
         JavaRDD<String> rdd = sc.textFile(s);
 
         List<String> list =  rdd.collect();
+
         System.out.println(list.size());
         list.forEach(System.out::println);
+
 
         SparkSession spark = SparkSession
                 .builder()
@@ -31,11 +33,17 @@ public class ReadFileExample {
         Dataset<Row> df = spark.read().format("com.databricks.spark.csv").option("header", true).load(s);
         df.show();
 
-        Dataset<Row> df1 = df.filter(df.col("id").equalTo("1"));
+
+
+        Dataset<Row> df1 = df.filter(df.col("id").notEqual("1"));
         df1.show();
 
-        Dataset<Row> df2 = df1.drop("Marks");
+
+
+        Dataset<Row> df2 = df1.drop("marks");
         df2.show();
+
+
 
     }
 }
