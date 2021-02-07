@@ -17,13 +17,13 @@ import scala.Tuple2;
 
 import static org.apache.spark.sql.functions.*;
 
-abstract class DistinctWithRank {
-    abstract void doSomething();
+public class DistinctWithRank {
+
 
     public static void main(String[] args) {
         Dataset<Row> row = FileComparison.getDataSet("/Users/vikaschandra/IdeaProjects/data/rank").alias("t");
         //row.show();
-        row.groupBy(col("s"), col("b")).agg(min(col("rank")).alias("rank"))
+        row.groupBy(col("s"), col("b")).min("rank").alias("rank")
                 .select(col("rank"), col("s"),col("b"))
                 .sort(col("rank"), col("s"),col("b")).show();
     }

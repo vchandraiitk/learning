@@ -1,67 +1,25 @@
 
 
-DataSet
-DataFrame
-Filter
-Aggregator
-Join
-Col and static import
-What is Option/Optional ... Is that for handling NPE?
+class Car{
+    public static void printColor(){
+        sout(red)
+    }
 
+}
 
+class Ford extends Car{
 
+    public static void printColor(){
+        sout(blue)
+    }
 
+}
 
-Cache()
-Persist()
-Different types of persistence
-PairRdd
+class Test{
 
+psvm{
 
-1. Arch
-2. Cover other action/transformation + small problem solving
-3. DataSet
-4. Problem Solving
-5. Real application on hadoop cluster
-
-
-
-Ordering inters
-Sampling - fraction
-
-Actions
-    Collect
-    Count
-    CountByValue
-    take
-    reduce
-
-Map
-FlatMap
-MapToPair
-PairedRDD
-ReduceBykey
-
-
-sparkContext vs session
-SparkSession vs SparkContext – Since earlier versions of Spark or Pyspark, SparkContext (JavaSparkContext for Java) is an entry point to Spark programming
-with RDD and to connect to Spark Cluster, Since Spark 2.0 SparkSession has been introduced and became an entry point to start programming with DataFrame and Dataset.
-
-
-System.out.println(rdd.count());
-        System.out.println("------------");
-        rdd.collect().forEach( p -> System.out.println(p.length()));
-        System.out.println("------------");
-        Map<String, Long> map =  rdd.countByValue();
-        for(Map.Entry<String, Long> entry : map.entrySet()){
-            System.out.println(entry.getKey() + ":" + entry.getValue());
-        }
-
-        System.out.println("------------");
-        JavaRDD<String> flatmap =  rdd.flatMap(p-> Arrays.asList(p.split(",")).iterator());
-        flatmap.countByValue().entrySet().forEach(p-> System.out.println(p.getKey() + " : " + p.getValue()));
-
-How NumberOfPartitions are created
-How blocks are created
-Lazy evaluation
-
+    Car c = new Ford
+    c.printcolor;
+}
+}

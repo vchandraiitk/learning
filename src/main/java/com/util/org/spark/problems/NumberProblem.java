@@ -20,6 +20,5 @@ public class NumberProblem {
         JavaRDD<String> rdd1 = rdd.flatMap(p-> Arrays.asList(p.split(",")).iterator());
         JavaRDD<Integer> rddmap = rdd1.map(p->Integer.parseInt(p));
         System.out.println(rddmap.reduce((x,y)->x+y));
-       // JavaRDD<Integer> rdd3 =  rdd1.reduce((x,y)-> Integer.parseInt(x)+Integer.parseInt(y));
     }
 }
